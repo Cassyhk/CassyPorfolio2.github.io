@@ -1,463 +1,843 @@
-<!DOCTYPE HTML>
-<!--
-	Paradigm Shift by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Paradigm Shift by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cassy Tsui | Business &amp; Project Analyst</title>
+<meta name="description" content="Cassy Tsui, business and project analyst in Operations and Georgia Tech data analytics master's student working with SQL, Python, machine learning, and LLMs." />
+<meta name="theme-color" content="#081429" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<style>
+  :root {
+    --night: #070f1f;
+    --glow: #f6efd2;
+    --gold: #e9cf86;
+    --amber: #f5b36b;
+    --teal: #7fd1c7;
+    --violet: #a99bf0;
+    --ink: #f4f1e4;
+    --text: #c9cfdc;
+    --muted: #8e98b0;
+    --stone: rgba(16, 24, 42, 0.82);
+    --stone-2: rgba(30, 42, 68, 0.86);
+    --edge: rgba(246, 239, 210, 0.16);
+    --halo: 0 0 22px rgba(246, 239, 210, 0.35), 0 0 60px rgba(233, 207, 134, 0.18);
+    --stone-radius: 30px 24px 34px 22px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--night); line-height: 1.75; overflow-x: hidden; }
+  h1, h2, h3, h4 { font-family: 'Fraunces', serif; color: var(--ink); line-height: 1.2; font-weight: 600; }
+  a { color: var(--gold); text-decoration: none; }
+  img { max-width: 100%; display: block; }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  /* ---------- Fantasy landscape background ---------- */
+  .scene {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    background: linear-gradient(180deg, #070f22 0%, #141f4a 22%, #33296a 36%, #6a3f74 46%, #c0705f 52%, #f0b06c 56%, #f8d48e 60%, #3a3a78 62%);
+  }
+  .scene svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .scene .layer { will-change: transform; }
+  .twinkle { animation: twinkle 3.5s ease-in-out infinite; }
+  @keyframes twinkle { 50% { opacity: .15; } }
+  .bob { animation: bob 7s ease-in-out infinite; }
+  .bob.slow { animation-duration: 9s; animation-delay: -3s; }
+  @keyframes bob { 50% { transform: translateY(-10px); } }
+  .fall { stroke-dasharray: 6 10; animation: fall 1s linear infinite; }
+  @keyframes fall { to { stroke-dashoffset: -32; } }
+  .window { animation: flicker 4s ease-in-out infinite; }
+  @keyframes flicker { 40% { opacity: .65; } 45% { opacity: 1; } }
+  .veil { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: rgb(7,15,31); opacity: 0; }
+  .section-title, .section-sub, .about-text p, .eyebrow, .tiles-label { text-shadow: 0 2px 12px rgba(5,10,24,.85); }
+  #fireflies { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+  main, footer { position: relative; z-index: 3; }
 
-					<!-- Intro -->
-					<section class="intro">
-						<header>
-							<h1><a href="https://github.com/Cassyhk/portfolio">Cassy the Canto-analyst Portfolio</h1>
-							<p>Disney College Program Alumni | Microsoft Certified Power BI Data Analyst Associate <ul class="icons">
-								<li><a href="https://www.instagram.com/cassyhk.io?igsh=d3Z4cGJ2cHE4dGJ2&utm_source=qr" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://www.linkedin.com/in/cassy-sin-ting-tsui-54933843/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="https://github.com/Cassyhk/portfolio" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							</ul>
-							<ul class="actions">
-								<li><a class="arrow scrolly"><span class="label">Next</span></a></li>
-							</ul>
-						</header>
-						<div class="content">
-							<span class="image fill" data-position="center"><img src="images/Profile.jpg" alt="" /></span>
-						</div>
-					</section>
+  /* ---------- Side nav (glowing stones) ---------- */
+  .side-nav { position: fixed; right: 26px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 50; }
+  .side-nav a {
+    position: relative; width: 48px; height: 46px; border-radius: 48% 52% 45% 55% / 55% 48% 52% 45%;
+    display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, #3a4770, #182240 70%);
+    color: var(--muted); font-size: 16px; border: 1px solid var(--edge); box-shadow: inset 0 -4px 8px rgba(0,0,0,.35);
+    transition: color .3s, box-shadow .3s, transform .3s;
+  }
+  .side-nav a:nth-child(even) { border-radius: 55% 45% 52% 48% / 46% 54% 46% 54%; }
+  .side-nav a:hover { transform: scale(1.08) rotate(-3deg); }
+  .side-nav a.active, .side-nav a:hover { color: var(--night); background: radial-gradient(circle at 40% 35%, #fff, var(--glow) 40%, var(--gold)); box-shadow: var(--halo); }
+  .side-nav a span { position: absolute; right: 60px; white-space: nowrap; background: var(--stone-2); color: var(--glow); border: 1px solid var(--edge); font-weight: 700; font-size: 13px; padding: 5px 14px; border-radius: 20px; opacity: 0; pointer-events: none; transform: translateX(8px); transition: opacity .2s, transform .2s; }
+  .side-nav a:hover span { opacity: 1; transform: translateX(0); }
 
-				<!-- Section -->
-					<section id="first">
-						<header>
-							<h2>About Cassy</h2>
-							<h2>Sin Ting Tsui <strong>B.A.S.D.H.,C.R.D.H.,E.F.D.A.,C.N.A.</strong></h2>
-						</header>
-						<div class="content">
-							<p><strong>Enthusiastic data analyst with a strong skill set, holding a Microsoft certification in Power BI data analysis, solid proficiency in Python, SQL and Excel, and extensive experience in business intelligence.</strong> My recent honors graduation has further enhanced my analytical abilities. I have a genuine passion for extracting valuable insights from complex data, as evidenced by my practical data visualization experience at the University of Florida. In my current role as a Business Intelligence Analyst, I focus on analyzing provider performance and creating dashboards to improve client satisfaction and training plans. With a Bachelor of Applied Science with honors and Power BI certification, I am eager to contribute my skills and knowledge to an analyst role, particularly in improving operations and quality through data-driven insights.</p>
-				<span class="image main"><img src="images/Profile2.jpg" alt="" /></span>
-						</div>
-					</section>
-<!--
-						<div class="content">
-							<p><strong>As a highly qualified candidate for a data analyst role,</strong> I bring a robust skill set to the table. With a Microsoft certification in Power BI data analysis, proficiency in SQL and Excel, and a solid foundation of 12 years in healthcare, I offer a unique blend of technical expertise and domain knowledge. My recent graduation with honors and the acquisition of a bachelor’s degree further enhanced my analytical capabilities. Additionally, I possess hands-on experience in crafting data visualizations through my involvement in a community outreach research program at the University of Florida. My unwavering passion lies in leveraging intricate data to derive actionable insights.</p>
-							<span class="image main"><img src="images/Profile2.jpg" alt="" /></span>
-						</div>
-					</section>
+  section { padding: 110px 120px 110px 8%; position: relative; }
+  .wrap { max-width: 1100px; margin: 0 auto; position: relative; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 800; color: var(--gold); }
+  .eyebrow .num { color: var(--teal); }
+  .section-title { font-size: clamp(32px, 4.4vw, 48px); margin: 8px 0 18px; }
+  .section-title em { font-style: italic; color: var(--glow); text-shadow: 0 0 24px rgba(246,239,210,.45); }
+  .section-sub { max-width: 680px; font-size: 17px; margin-bottom: 40px; }
 
-</header>
-						-->
+  .stone {
+    background: linear-gradient(160deg, var(--stone-2), var(--stone) 70%);
+    border: 1px solid var(--edge); border-radius: var(--stone-radius);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    box-shadow: inset 0 1px 0 rgba(246,239,210,.06), inset 0 -10px 24px rgba(0,0,0,.25), 0 14px 30px rgba(0,0,0,.3);
+  }
+  .spotlight { animation: spot 2.4s ease-out; }
+  @keyframes spot { 0%, 40% { box-shadow: 0 0 0 3px var(--gold), 0 0 50px rgba(233,207,134,.55); } 100% { box-shadow: inset 0 1px 0 rgba(246,239,210,.06), 0 14px 30px rgba(0,0,0,.3); } }
 
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Certifications</h2>
-						</header>
-					</header>
-						<div class="content">
-							<p><strong>Bachelor of Applied Science(with Honors)</strong></p>
-							<p></p>St. Petersburg College</p>
-							<ul class="feature-icons">
-							</ul>
-							<section id="first">
-								<header>
-									<h2>About Cassy</h2>
-									<h2>Sin Ting Tsui <strong>B.A.S.D.H., C.R.D.H., E.F.D.A., C.N.A.</strong></h2>
-								</header>
-								<div class="content" style="font-family: 'Lato', sans-serif; line-height: 1.6; margin: 0; padding: 20px;">
-									<p style="margin: 0 0 10px 0;"><strong>(Analyst)</strong></p>
-									<p style="margin: 0 0 5px 0;">• Microsoft Power BI Data Analyst Associate - 1/19/2026</p>
-									<p style="margin: 0 0 5px 0;">• Pragmatic Works Power BI Bootcamp (Obtained)</p>
-									<p style="margin: 0 0 5px 0;">• DataCamp: Intro SQL Server / Intermediate SQL / Joining Data in SQL</p>
-									<p style="margin: 0 0 5px 0;">• DataCamp: Data Analysis in Excel</p>
-									<p></p>
-									<p></p>
-									<p style="margin: 0 0 10px 0;"><strong>(Healthcare)</strong></p>
-									<p style="margin: 0 0 5px 0;">• FL licensed Certified Registered Dental Hygienist</p>
-									<p style="margin: 0 0 5px 0;">• Dental Anesthesia Assistant National Certification Examination certified</p>
-									<p style="margin: 0 0 5px 0;">• Certified expanded function dental assistant</p>
-									<p style="margin: 0 0 5px 0;">• Certified nursing assistant</p>
-									<p style="margin: 0 0 5px 0;">• Basic Life Support obtained</p>
-									<p style="margin: 0 0 5px 0;">• Attended HIPPA & OSHA Bloodborne pathogens training (Obtained)</p>
-									<span class="image main">
-										<img src="https://media.licdn.com/dms/image/v2/D4E22AQFx4nSBB54rOg/feedshare-shrink_1280/feedshare-shrink_1280/0/1729993336366?e=1733961600&v=beta&t=Vz6KxtPAgdgqts_02zPyrqgSxdYXHvGNmC9kgiv1fyw" alt="Profile Image" style="max-width: 50%; height: auto; display: block; margin: 0 auto;" />
-									</span>									
-									
-								</div>
-							</section>							
-					<!-- Section -->
-					<section>
-						<header>
-							<h2>Portfolio Highlights</h2>
-						</header>
-						<div class="content">
-						</section>
-							<!-- Section -->
-							<section>
-								<header>
-									<h3>Data Exploration with Tableau Reports</h3>
-									<p></p>
-								</header>
-								<div class="content">
-									<div class="gallery" style="display: flex; justify-content: center;">
-										<a href="https://public.tableau.com/views/Salesdashboard_17313448480100/SalesDashboard?:language=en-US&publish=yes&:sid=304A9A7F20504D0AB7CEF82C819DD6CF-0:0&:redirect=auth&:display_count=n&:origin=viz_share_link" class="landscape">
-											<img src="https://public.tableau.com/static/images/Sa/Salesdashboard_17313448480100/SalesDashboard/1.png" alt="Sales Dashboard" style="max-width: 100%; height: auto;" />
-										</a>
-									</div>
-							</section>
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Data Exploration with Power BI Reports</h3>
-										<p></p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/WWI Sales Dashboard 1.png" class="landscape"><img src="images/WWI Sales Dashboard 1.png" alt="" /></a>
-											<a href="images/WWI Sales Dashboard 2.png"><img src="images/WWI Sales Dashboard 2.png" alt="" /></a>
-											<a href="images/Flight Performance Dashboard.png"><img src="images/Flight Performance Dashboard.png" alt="" /></a>
-											<a href="images/Sales Person Performance Dashboard.png" class="landscape"><img src="images/Sales Person Performance Dashboard.png" alt="" /></a>
-										</div>
-									</div>
-								</section>
+  /* ---------- Hero ---------- */
+  #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 70px; padding-bottom: 90px; }
+  .hero { display: grid; grid-template-columns: minmax(280px, 0.85fr) 1.15fr; gap: 72px; align-items: center; }
+  .photo-wrap { position: relative; padding: 40px 0; }
+  .photo-wrap::before { content: ""; position: absolute; inset: 0 22% 0 -30px; background: linear-gradient(170deg, #6b58b8, #3a3f84 60%, #26306a); border-radius: 0 0 0 30px; clip-path: polygon(0 0, 52% 0, 100% 100%, 0 100%); }
+  .photo-wrap::after { content: ""; position: absolute; left: 10%; right: 0; top: 10%; bottom: 10%; background: radial-gradient(circle, rgba(246,239,210,.35), transparent 65%); filter: blur(30px); z-index: 0; }
+  .photo-card { position: relative; z-index: 1; margin-left: 20px; overflow: hidden; aspect-ratio: 4 / 5; background: #141d33; border-radius: 26px 22px 30px 20px; border: 3px solid rgba(246,239,210,.6); box-shadow: 0 30px 60px rgba(0,0,0,.45), var(--halo); }
+  .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-fallback { width: 100%; height: 100%; display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #4a4a90, #141d33 70%); font-family: 'Fraunces', serif; font-size: 96px; font-weight: 700; color: var(--glow); }
+  .hello { font-size: 18px; font-weight: 700; color: var(--glow); opacity: .85; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+  .hero h1 { font-size: clamp(44px, 6vw, 72px); font-weight: 700; margin: 2px 0 10px; letter-spacing: -1px; color: var(--glow); text-shadow: 0 0 30px rgba(246,239,210,.4), 0 4px 18px rgba(0,0,0,.4); }
+  .typed-line { font-size: 19px; font-weight: 800; color: var(--gold); margin-bottom: 16px; min-height: 1.75em; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+  .caret { display: inline-block; width: 3px; height: 1.1em; background: var(--amber); vertical-align: -3px; margin-left: 3px; border-radius: 2px; box-shadow: 0 0 8px var(--amber); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .lead-box { padding: 20px 24px; margin-bottom: 28px; max-width: 620px; }
+  .hero p.lead { font-size: 17px; color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--glow); color: var(--night); font-weight: 800; font-size: 15px; letter-spacing: .5px; padding: 14px 30px; border-radius: 40px; border: none; cursor: pointer; box-shadow: 0 0 0 4px rgba(246,239,210,.14), 0 10px 26px rgba(0,0,0,.35); transition: transform .25s, box-shadow .25s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--halo); color: var(--night); }
+  .btn.ghost { background: rgba(7,15,31,.45); color: var(--glow); border: 2px solid rgba(246,239,210,.5); box-shadow: none; }
+  .btn.ghost:hover { background: rgba(246,239,210,.12); box-shadow: 0 0 24px rgba(246,239,210,.25); }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+  .stat { padding: 18px 20px; }
+  .stat .k { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: var(--glow); line-height: 1.25; }
+  .stat .v { font-size: 13.5px; color: var(--muted); font-weight: 700; }
+  .stat i { color: var(--gold); margin-bottom: 8px; display: block; font-size: 18px; }
 
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Data Cleansing with SQL</h3>
-										<p> </p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/SQL_ETC.png" class="landscape"><img src="images/SQL_ETC.png" alt="" /></a>
-											<a href="images/SQL_Having.png"><img src="images/SQL_Having.png" alt="" /></a>
-											<a href="images/Case Statement.jpg"><img src="images/Case Statement.jpg" alt="" /></a>
-										</div>
-									</div>
-								</section>
+  /* ---------- About ---------- */
+  .about-text { max-width: 820px; }
+  .about-text p { margin-bottom: 18px; font-size: 17px; }
+  .about-text p strong { color: var(--glow); }
+  .tiles-label { margin: 34px 0 16px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; color: var(--muted); }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tile { display: flex; flex-direction: column; padding: 22px 20px 18px; color: inherit; cursor: pointer; text-align: left; font: inherit; transition: transform .3s, box-shadow .3s, border-color .3s; }
+  .tile:nth-child(2) { border-radius: 24px 32px 22px 30px; }
+  .tile:nth-child(3) { border-radius: 34px 22px 28px 24px; }
+  .tile:nth-child(4) { border-radius: 22px 30px 34px 24px; }
+  .tile:hover, .tile:focus-visible { transform: translateY(-6px); border-color: rgba(233,207,134,.6); box-shadow: 0 0 34px rgba(233,207,134,.22), 0 18px 34px rgba(0,0,0,.35); outline: none; }
+  .tile .ico { width: 44px; height: 44px; border-radius: 45% 55% 50% 50%; display: grid; place-items: center; background: rgba(233,207,134,.12); color: var(--gold); font-size: 18px; border: 1px solid rgba(233,207,134,.35); margin-bottom: 12px; }
+  .tile h4 { font-size: 17.5px; margin-bottom: 6px; }
+  .tile p { font-size: 14.5px; line-height: 1.55; flex: 1; }
+  .tile .go { margin-top: 14px; font-size: 13px; font-weight: 800; color: var(--gold); display: flex; align-items: center; gap: 8px; }
+  .tile .go i { transition: transform .25s; }
+  .tile:hover .go i { transform: translateX(4px); }
+  .toolkit-row { margin-top: 26px; padding: 22px 28px; display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  .toolkit-row h3 { font-size: 19px; display: flex; gap: 10px; align-items: center; white-space: nowrap; }
+  .toolkit-row h3 i { color: var(--gold); font-size: 16px; }
+  .toolkit-row .chips { flex: 1; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-weight: 700; font-size: 13.5px; color: var(--ink); padding: 6px 14px; border-radius: 20px 16px 22px 14px; background: rgba(127, 209, 199, 0.12); border: 1px solid rgba(127, 209, 199, 0.38); }
+  .chip.warm { background: rgba(233, 207, 134, 0.12); border-color: rgba(233, 207, 134, 0.4); }
+  .chip.cool { background: rgba(169, 155, 240, 0.13); border-color: rgba(169, 155, 240, 0.42); }
 
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Advanced formula in Microsoft Excel</h3>
-										<p> </p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/Excel 1.png" class="portrait"><img src="images/Excel 1.png" alt="" /></a>
-											<a href="images/Excel 2.png" class="portrait"><img src="images/Excel 2.png" alt="" /></a>
-											<a href="images/Excel 3.png" class="landscape"><img src="images/Excel 3.png" alt="" /></a>
-										</div>
-									</div>
-								</section>
-						</div>
-					</section>
+  /* ---------- Projects ---------- */
+  .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .proj { padding: 28px 26px; display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s; }
+  .proj:nth-child(2) { border-radius: 24px 32px 22px 30px; }
+  .proj:nth-child(3) { border-radius: 34px 22px 28px 24px; }
+  .proj:hover { transform: translateY(-5px); box-shadow: 0 0 34px rgba(246,239,210,.14), 0 18px 34px rgba(0,0,0,.3); }
+  .proj .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .proj .icon { width: 46px; height: 46px; border-radius: 45% 55% 50% 50%; display: grid; place-items: center; background: rgba(169,155,240,.14); color: var(--violet); font-size: 19px; border: 1px solid rgba(169,155,240,.4); }
+  .proj .kind { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; color: var(--amber); }
+  .proj h4 { font-size: 19.5px; margin-bottom: 8px; }
+  .proj p { font-size: 15px; line-height: 1.65; margin-bottom: 16px; flex: 1; }
+  .proj .chips .chip { font-size: 12.5px; padding: 4px 11px; }
 
-				<!-- Elements -->
-				<!--
-					<section>
-						<header>
-							<h2>Elements</h2>
-						</header>
-						<div class="content">
+  /* ---------- Experience ---------- */
+  .timeline-cols { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; margin-top: 40px; }
+  .timeline-cols h3 { font-size: 24px; margin-bottom: 26px; display: flex; align-items: center; gap: 12px; }
+  .timeline-cols h3 i { color: var(--gold); }
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; border-left: 3px dashed rgba(233,207,134,.5); }
+  .t-item { position: relative; margin-bottom: 22px; padding: 20px 22px; }
+  .t-item::before { content: ""; position: absolute; left: -32px; top: 26px; width: 17px; height: 17px; border-radius: 50%; background: radial-gradient(circle, #fff, var(--glow) 45%, var(--gold)); box-shadow: 0 0 14px rgba(246,239,210,.7); }
+  .t-tag { display: inline-block; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; color: var(--amber); margin-bottom: 2px; }
+  .t-item h4 { font-size: 19px; }
+  .t-item .org { font-size: 14.5px; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+  .t-item p { font-size: 15px; }
+  .t-item ul { list-style: none; margin-top: 6px; }
+  .t-item li { font-size: 15px; padding-left: 20px; position: relative; margin-bottom: 4px; line-height: 1.6; }
+  .t-item li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 50% 0 50% 0; background: var(--teal); }
 
-							<section>
-								<header>
-									<h3>Text</h3>
-								</header>
-								<div class="content">
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<hr />
-									<h5>Blockquote</h5>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h5>Preformatted</h5>
-									<pre><code>i = 0;
+  /* ---------- Credentials ---------- */
+  .cred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+  .cred { padding: 26px 24px; transition: transform .3s, box-shadow .3s; }
+  .cred:nth-child(2) { border-radius: 24px 32px 22px 30px; }
+  .cred:nth-child(3) { border-radius: 34px 22px 28px 24px; }
+  .cred:nth-child(4) { border-radius: 22px 30px 34px 24px; }
+  .cred:hover { transform: translateY(-5px); box-shadow: 0 0 34px rgba(246,239,210,.15); }
+  .cred i { font-size: 24px; margin-bottom: 12px; color: var(--gold); }
+  .cred h4 { font-size: 17.5px; margin-bottom: 6px; }
+  .cred p { font-size: 14.5px; }
+  .cred.featured { background: radial-gradient(circle at 30% 20%, rgba(246,239,210,.2), transparent 60%), linear-gradient(160deg, rgba(74,70,150,.9), rgba(30,36,80,.9)); border-color: rgba(246,239,210,.4); box-shadow: 0 0 40px rgba(169,155,240,.25); }
+  .cred.featured i { color: var(--glow); text-shadow: 0 0 14px var(--glow); }
+  .health { margin-top: 26px; padding: 24px 30px; }
+  .health h4 { font-size: 18.5px; margin-bottom: 8px; display: flex; gap: 10px; align-items: center; }
+  .health h4 i { color: var(--amber); }
 
-while (!deck.isInOrder()) {
-  print 'Iteration ' + i;
-  deck.shuffle();
-  i++;
-}
+  /* ---------- Dashboards ---------- */
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+  .filters button { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; cursor: pointer; padding: 9px 20px; border-radius: 22px 18px 24px 16px; background: var(--stone); color: var(--text); border: 1px solid var(--edge); transition: all .25s; }
+  .filters button.active, .filters button:hover { background: var(--glow); color: var(--night); box-shadow: var(--halo); }
+  .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+  .work { display: block; overflow: hidden; cursor: pointer; color: inherit; transition: transform .3s, box-shadow .3s; }
+  .work:hover { transform: translateY(-6px); box-shadow: 0 0 36px rgba(246,239,210,.16), 0 18px 34px rgba(0,0,0,.3); }
+  .work .thumb { aspect-ratio: 16 / 10; background: #0d1530; overflow: hidden; position: relative; border-bottom: 1px solid var(--edge); }
+  .work .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s; }
+  .work:hover .thumb img { transform: scale(1.05); }
+  .work .thumb .ph { position: absolute; inset: 0; display: none; place-items: center; color: var(--violet); font-size: 40px; }
+  .work .thumb.missing .ph { display: grid; }
+  .work .info { padding: 16px 22px 20px; }
+  .work .cat { font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; color: var(--gold); }
+  .work h4 { font-size: 18px; margin-top: 2px; }
+  .work.hide { display: none; }
 
-print 'Sorted in ' + i + ' iterations.';</code></pre>
-								</div>
-							</section>
+  /* ---------- Contact ---------- */
+  #contact .wrap { text-align: center; }
+  .contact-box { padding: 64px 30px; position: relative; overflow: hidden; }
+  .contact-box::before { content: ""; position: absolute; left: 50%; top: -40%; width: 70%; height: 90%; transform: translateX(-50%); background: radial-gradient(circle, rgba(246,239,210,.14), transparent 65%); pointer-events: none; }
+  #contact .section-title { margin-bottom: 14px; }
+  #contact p.lead { max-width: 600px; margin: 0 auto 32px; font-size: 17px; }
+  .socials { display: flex; justify-content: center; gap: 16px; margin-bottom: 34px; position: relative; }
+  .socials a { width: 58px; height: 56px; display: grid; place-items: center; border-radius: 48% 52% 45% 55% / 55% 48% 52% 45%; background: radial-gradient(circle at 35% 30%, #3a4770, #182240 70%); border: 1px solid var(--edge); color: var(--glow); font-size: 21px; transition: all .3s; }
+  .socials a:hover { background: radial-gradient(circle at 40% 35%, #fff, var(--glow) 40%, var(--gold)); color: var(--night); box-shadow: var(--halo); transform: translateY(-3px); }
+  footer { text-align: center; font-size: 13.5px; color: var(--muted); padding: 30px 20px 40px; }
 
-							<section>
-								<header>
-									<h3>Lists</h3>
-								</header>
-								<div class="content">
+  /* ---------- Lightbox ---------- */
+  .lightbox { position: fixed; inset: 0; background: rgba(5, 9, 20, 0.92); display: none; align-items: center; justify-content: center; z-index: 100; padding: 30px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-height: 86vh; border-radius: 14px; border: 2px solid rgba(246,239,210,.45); box-shadow: var(--halo); }
+  .lightbox button { position: absolute; top: 20px; right: 26px; background: none; border: none; color: var(--glow); font-size: 34px; cursor: pointer; }
 
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
 
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1000px) {
+    section { padding: 90px 100px 90px 6%; }
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .photo-wrap { width: 100%; max-width: 380px; }
+    .timeline-cols { grid-template-columns: 1fr; gap: 40px; }
+    .tiles { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 700px) {
+    section { padding: 70px 16px 90px; }
+    #home { min-height: auto; padding-top: 40px; }
+    .photo-wrap { width: 100%; max-width: 290px; margin: 0 auto; }
+    .hero-text { text-align: center; }
+    .hero .btn-row { justify-content: center; }
+    .stats { grid-template-columns: 1fr; gap: 10px; margin-top: 36px; }
+    .tiles, .proj-grid, .work-grid { grid-template-columns: 1fr; }
+    .side-nav { top: auto; bottom: 0; right: 0; left: 0; transform: none; flex-direction: row; justify-content: space-around; gap: 0; background: rgba(7, 15, 31, 0.94); backdrop-filter: blur(10px); border-top: 1px solid var(--edge); padding: 9px 6px calc(9px + env(safe-area-inset-bottom)); }
+    .side-nav a { width: 40px; height: 38px; font-size: 14px; }
+    .side-nav a span { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .caret, .twinkle, .bob, .fall, .window, .spotlight { animation: none; }
+  }
+</style>
+</head>
+<body>
 
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
+<!-- ================= Fantasy landscape ================= -->
+<div class="scene" aria-hidden="true">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#fff8e0" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#fff8e0" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="horizon" cx="50%" cy="100%" r="60%">
+        <stop offset="0" stop-color="#ffd58a" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#ffd58a" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e9d9ff" stop-opacity="0"/>
+        <stop offset=".55" stop-color="#e9d9ff" stop-opacity=".16"/>
+        <stop offset="1" stop-color="#e9d9ff" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#dff6ff" stop-opacity=".9"/>
+        <stop offset="1" stop-color="#dff6ff" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f3c47c" stop-opacity=".45"/>
+        <stop offset="1" stop-color="#2b2f63" stop-opacity=".1"/>
+      </linearGradient>
+    </defs>
 
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-							</section>
+    <!-- sky, stars, moons -->
+    <g class="layer" data-depth="0.02">
+      <g id="stars"></g>
+      <circle cx="1110" cy="170" r="170" fill="url(#moonGlow)"/>
+      <circle cx="1110" cy="170" r="66" fill="#fbf3d6"/>
+      <circle cx="1088" cy="152" r="12" fill="#efe3bd" opacity=".7"/>
+      <circle cx="1130" cy="190" r="8" fill="#efe3bd" opacity=".6"/>
+      <circle cx="1252" cy="96" r="16" fill="#cfe7f0" opacity=".9"/>
+      <ellipse cx="720" cy="700" rx="900" ry="260" fill="url(#horizon)"/>
+    </g>
 
-							<section>
-								<header>
-									<h3>Table</h3>
-								</header>
-								<div class="content">
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
+    <!-- far mountains with a castle -->
+    <g class="layer" data-depth="0.04">
+      <path d="M0 560 L80 500 L150 530 L260 430 L340 490 L420 450 L520 520 L600 470 L700 540 L780 480 L860 395 L940 470 L1040 430 L1120 500 L1220 440 L1320 510 L1440 460 V1500 H0Z" fill="#3a3a78"/>
+      <path d="M260 430 L285 455 L270 452 L300 480 L260 470 Z M860 395 L880 420 L866 418 L895 445 L855 440 Z M1220 440 L1240 462 L1228 460 L1255 485 L1215 478 Z" fill="#6c69a8" opacity=".6"/>
+      <g fill="#24275a">
+        <rect x="834" y="355" width="56" height="48"/>
+        <rect x="828" y="335" width="12" height="40"/><polygon points="826,335 834,318 842,335"/>
+        <rect x="884" y="340" width="12" height="35"/><polygon points="882,340 890,324 898,340"/>
+        <rect x="853" y="318" width="18" height="45"/><polygon points="850,318 862,292 874,318"/>
+      </g>
+      <g fill="#ffd98a">
+        <rect class="window" x="859" y="330" width="5" height="8" rx="2"/>
+        <rect class="window" x="844" y="372" width="4" height="7" rx="2" style="animation-delay:-1.5s"/>
+        <rect class="window" x="874" y="372" width="4" height="7" rx="2" style="animation-delay:-2.6s"/>
+        <rect class="window" x="831" y="346" width="4" height="6" rx="2" style="animation-delay:-.8s"/>
+      </g>
+    </g>
 
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</div>
-							</section>
+    <!-- floating islands with waterfalls -->
+    <g class="layer" data-depth="0.07">
+      <g transform="translate(330,-110) scale(.7)"><g class="bob">
+        <path d="M230 252 Q330 236 430 252 L410 272 L392 306 L372 296 L352 338 L330 300 L308 318 L292 286 L262 276 Z" fill="#2b2a5c"/>
+        <path d="M352 338 L350 362 M308 318 L304 340 M392 306 L396 326" stroke="#2b2a5c" stroke-width="3" fill="none"/>
+        <path d="M226 252 Q330 232 434 252 Q330 266 226 252 Z" fill="#4c8a6a"/>
+        <g fill="#2e5f4b">
+          <polygon points="270,250 280,214 290,250"/><polygon points="292,248 300,222 308,248"/><polygon points="380,250 392,206 404,250"/>
+        </g>
+        <path d="M414 256 Q420 262 418 280 L418 520" stroke="url(#water)" stroke-width="7" fill="none" class="fall" opacity=".85"/>
+        <path d="M414 256 Q420 262 418 280 L418 520" stroke="#ffffff" stroke-width="2" fill="none" opacity=".25"/>
+      </g></g>
+      <g transform="translate(-530,60)"><g class="bob slow">
+        <path d="M560 168 Q610 160 660 168 L648 180 L630 204 L612 190 L596 214 L580 186 Z" fill="#2b2a5c"/>
+        <path d="M556 168 Q610 156 664 168 Q610 176 556 168 Z" fill="#4c8a6a"/>
+        <polygon points="600,166 608,140 616,166" fill="#2e5f4b"/>
+      </g></g>
+      <g transform="translate(-110,-275)"><g class="bob" style="animation-delay:-5s">
+        <path d="M1290 300 Q1350 290 1410 300 L1396 316 L1378 344 L1360 326 L1342 352 L1324 320 Z" fill="#2b2a5c"/>
+        <path d="M1286 300 Q1350 286 1414 300 Q1350 310 1286 300 Z" fill="#4c8a6a"/>
+        <path d="M1300 304 L1300 470" stroke="url(#water)" stroke-width="5" fill="none" class="fall" opacity=".75"/>
+      </g></g>
+    </g>
 
-							<section>
-								<header>
-									<h3>Buttons</h3>
-								</header>
-								<div class="content">
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button large">Large</a></li>
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</div>
-							</section>
+    <!-- mid mountains, lake, mist -->
+    <g class="layer" data-depth="0.1">
+      <path d="M0 640 L120 560 L220 610 L340 540 L470 620 L600 560 L720 630 L860 570 L990 640 L1110 575 L1240 630 L1360 580 L1440 610 V1500 H0Z" fill="#232a55"/>
+      <rect x="0" y="560" width="1440" height="140" fill="url(#mist)"/>
+      <path d="M380 700 Q720 670 1060 700 Q720 735 380 700 Z" fill="url(#lake)"/>
+    </g>
 
-							<section>
-								<header>
-									<h3>Form</h3>
-								</header>
-								<div class="content">
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</div>
-							</section>
+    <!-- near hills with pines -->
+    <g class="layer" data-depth="0.15">
+      <path d="M0 720 C 180 680, 320 730, 520 700 S 860 660, 1060 700 S 1320 690, 1440 680 V1500 H0 Z" fill="#17203f"/>
+      <g id="pinesBack" fill="#17203f"></g>
+    </g>
 
-						</div>
-					</section>
-				-->
+    <!-- foreground forest -->
+    <g class="layer" data-depth="0.22">
+      <path d="M0 790 C 220 760, 420 805, 640 778 S 1000 760, 1200 782 S 1380 775, 1440 770 V1500 H0 Z" fill="#0c1328"/>
+      <g id="pinesFront" fill="#0c1328"></g>
+      <rect x="0" y="860" width="1440" height="640" fill="#0a1022"/>
+    </g>
+  </svg>
+</div>
+<div class="veil" id="veil" aria-hidden="true"></div>
+<canvas id="fireflies" aria-hidden="true"></canvas>
 
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Get in touch</h2>
-									<ul class="icons">
-										<li><a href="https://www.instagram.com/cassyhk.io?igsh=d3Z4cGJ2cHE4dGJ2&utm_source=qr" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://www.linkedin.com/in/cassy-sin-ting-tsui-54933843/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-										<li><a href="https://github.com/Cassyhk/portfolio" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									</ul>
-								</li>
-							</ul>
-						</footer>
-					</section>
+<nav class="side-nav" aria-label="Sections">
+  <a href="#home" class="active" aria-label="Home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+  <a href="#about" aria-label="About"><i class="fa-solid fa-user"></i><span>About</span></a>
+  <a href="#projects" aria-label="Projects"><i class="fa-solid fa-brain"></i><span>Projects</span></a>
+  <a href="#portfolio" aria-label="Dashboards"><i class="fa-solid fa-chart-column"></i><span>Dashboards</span></a>
+  <a href="#experience" aria-label="Experience"><i class="fa-solid fa-route"></i><span>Experience</span></a>
+  <a href="#credentials" aria-label="Credentials"><i class="fa-solid fa-award"></i><span>Credentials</span></a>
+  <a href="#contact" aria-label="Contact"><i class="fa-solid fa-comments"></i><span>Contact</span></a>
+</nav>
 
-				<!-- Copyright -->
-				<div class="copyright">&copy; Untitled. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
+<main>
+<!-- ================= HOME ================= -->
+<section id="home">
+  <div class="wrap hero">
+    <div class="photo-wrap">
+      <div class="photo-card">
+        <img src="images/Profile.jpg" alt="Portrait of Cassy Tsui" onerror="this.outerHTML='<div class=&quot;photo-fallback&quot;>CT</div>'" />
+      </div>
+    </div>
+    <div class="hero-text">
+      <p class="hello">Hello, I am</p>
+      <h1>Cassy Tsui</h1>
+      <p class="typed-line"><span id="typed">Business Analyst</span><span class="caret"></span></p>
+      <div class="lead-box stone">
+        <p class="lead">
+          A business and project analyst in Operations who builds clear metrics and trusted
+          dashboards that help leaders make confident decisions. I am pursuing a master's degree
+          in data analytics at Georgia Tech, with hands on work in SQL, Python, machine learning,
+          and large language models.
+        </p>
+      </div>
+      <div class="btn-row">
+        <a href="#projects" class="btn">View my work <i class="fa-solid fa-arrow-down"></i></a>
+        <a href="#contact" class="btn ghost">Contact me</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap stats">
+    <div class="stat stone"><i class="fa-solid fa-graduation-cap"></i><div class="k">Master's, Data Analytics</div><div class="v">Georgia Tech, in progress</div></div>
+    <div class="stat stone"><i class="fa-solid fa-certificate"></i><div class="k">Microsoft Certified</div><div class="v">Power BI Data Analyst Associate</div></div>
+    <div class="stat stone"><i class="fa-solid fa-brain"></i><div class="k">SQL, Python &amp; ML</div><div class="v">Including R, PyTorch, and Databricks</div></div>
+  </div>
+</section>
 
-			</div>
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">01</span> About</p>
+    <h2 class="section-title reveal">Turning data into <em>direction</em></h2>
+    <div class="about-text reveal">
+      <p>
+        As a <strong>Project Analyst in Operations</strong>, I serve as a link between business
+        partners, teammates, and leadership. I track and analyze group account churn escalations,
+        document processes, and deliver reporting that keeps every stakeholder aligned and informed.
+      </p>
+      <p>
+        Alongside my role, I am completing a <strong>master's degree in data analytics at Georgia
+        Tech's Scheller College of Business</strong>, building expertise in predictive modeling,
+        optimization, machine learning, and large language models. My earlier career in healthcare
+        gave me a foundation in precision and accountability that I bring to every analysis.
+      </p>
+    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <p class="tiles-label reveal">What I bring &nbsp;·&nbsp; select a skill to see the work behind it</p>
+    <div class="tiles reveal">
+      <button class="tile stone" type="button" data-target="#proj-dmaic">
+        <span class="ico"><i class="fa-solid fa-ruler-combined"></i></span>
+        <h4>Metrics &amp; definitions</h4>
+        <p>CTQ metrics, operational definitions, and DMAIC measures that create a consistent standard.</p>
+        <span class="go">See the project <i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <button class="tile stone" type="button" data-target="#portfolio" data-filter="powerbi">
+        <span class="ico"><i class="fa-solid fa-chart-line"></i></span>
+        <h4>Dashboards for leadership</h4>
+        <p>Power BI and Tableau reporting that gives leaders a clear view of performance.</p>
+        <span class="go">See dashboards <i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <button class="tile stone" type="button" data-target="#portfolio" data-filter="sql">
+        <span class="ico"><i class="fa-solid fa-database"></i></span>
+        <h4>SQL, Python &amp; data quality</h4>
+        <p>Data cleansing in SQL, modeling in Python and R, and data work in Databricks.</p>
+        <span class="go">See SQL work <i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <button class="tile stone" type="button" data-target="#projects">
+        <span class="ico"><i class="fa-solid fa-brain"></i></span>
+        <h4>Machine learning &amp; AI</h4>
+        <p>Forecasting, optimization, neural networks, text analytics, and large language models.</p>
+        <span class="go">See projects <i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+    </div>
 
-	</body>
+    <div class="toolkit-row stone reveal">
+      <h3><i class="fa-solid fa-toolbox"></i> Toolkit</h3>
+      <div class="chips">
+        <span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Databricks</span><span class="chip">Power BI</span>
+        <span class="chip">DAX</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip cool">R</span>
+        <span class="chip cool">PyTorch</span><span class="chip cool">XGBoost</span><span class="chip warm">Lean Six Sigma</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">02</span> Analytics &amp; Machine Learning</p>
+    <h2 class="section-title reveal">Selected <em>projects</em></h2>
+    <p class="section-sub reveal">Graduate work from Georgia Tech, each built around a real business question.</p>
+    <div class="proj-grid reveal">
+      <div class="proj stone" id="proj-route">
+        <div class="top"><span class="icon"><i class="fa-solid fa-truck-fast"></i></span><span class="kind">Optimization &amp; ML</span></div>
+        <h4>Route Optimization Pipeline</h4>
+        <p>Proposed a four model approach for a UPS ORION routing case, combining ARIMA and XGBoost forecasting with mixed integer programming, random forest, and heuristic vehicle routing.</p>
+        <div class="chips"><span class="chip cool">XGBoost</span><span class="chip cool">ARIMA</span><span class="chip cool">MIP</span><span class="chip cool">Random Forest</span></div>
+      </div>
+      <div class="proj stone" id="proj-nn">
+        <div class="top"><span class="icon"><i class="fa-solid fa-network-wired"></i></span><span class="kind">Deep learning &amp; NLP</span></div>
+        <h4>Neural Networks &amp; Text Analytics</h4>
+        <p>Built neural networks and CNNs in PyTorch and R, and applied LSA and LDA topic modeling to uncover themes in text.</p>
+        <div class="chips"><span class="chip cool">PyTorch</span><span class="chip cool">CNN</span><span class="chip cool">LDA</span></div>
+      </div>
+      <div class="proj stone" id="proj-quality">
+        <div class="top"><span class="icon"><i class="fa-solid fa-notes-medical"></i></span><span class="kind">Data quality</span></div>
+        <h4>Clinical Data Quality &amp; Imputation</h4>
+        <p>Applied missing data imputation methods to the Breast Cancer Wisconsin dataset to strengthen data quality before modeling, connecting my clinical background with analytics.</p>
+        <div class="chips"><span class="chip cool">Imputation</span><span class="chip cool">R</span></div>
+      </div>
+      <div class="proj stone" id="proj-dmaic">
+        <div class="top"><span class="icon"><i class="fa-solid fa-gears"></i></span><span class="kind">Lean Six Sigma</span></div>
+        <h4>Metrics &amp; Process Improvement</h4>
+        <p>Built DMAIC analyses for a delivery company case targeting rebate and idle time costs, developed CTQ metrics and operational definitions, and mapped a live churn escalation process with SIPOC.</p>
+        <div class="chips"><span class="chip warm">DMAIC</span><span class="chip warm">CTQ</span><span class="chip warm">SIPOC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARDS ================= -->
+<section id="portfolio">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">03</span> Business Intelligence</p>
+    <h2 class="section-title reveal">Dashboards &amp; <em>reporting</em></h2>
+    <p class="section-sub reveal">Reports and data preparation in Power BI, Tableau, SQL, and Excel.</p>
+    <div class="filters reveal" role="group" aria-label="Filter dashboards">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="powerbi">Power BI</button>
+      <button data-filter="tableau">Tableau</button>
+      <button data-filter="sql">SQL</button>
+      <button data-filter="excel">Excel</button>
+    </div>
+    <div class="work-grid reveal">
+      <a class="work stone" data-cat="tableau" target="_blank" rel="noopener" href="https://public.tableau.com/views/Salesdashboard_17313448480100/SalesDashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link">
+        <div class="thumb"><img src="https://public.tableau.com/static/images/Sa/Salesdashboard_17313448480100/SalesDashboard/1.png" alt="Tableau sales dashboard" /><div class="ph"><i class="fa-solid fa-chart-line"></i></div></div>
+        <div class="info"><span class="cat">Tableau</span><h4>Sales Dashboard <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:12px;"></i></h4></div>
+      </a>
+      <div class="work stone" data-cat="powerbi" data-full="images/WWI Sales Dashboard 1.png">
+        <div class="thumb"><img src="images/WWI Sales Dashboard 1.png" alt="Wide World Importers sales dashboard, page 1" /><div class="ph"><i class="fa-solid fa-chart-column"></i></div></div>
+        <div class="info"><span class="cat">Power BI</span><h4>Wide World Importers Sales, Page 1</h4></div>
+      </div>
+      <div class="work stone" data-cat="powerbi" data-full="images/WWI Sales Dashboard 2.png">
+        <div class="thumb"><img src="images/WWI Sales Dashboard 2.png" alt="Wide World Importers sales dashboard, page 2" /><div class="ph"><i class="fa-solid fa-chart-column"></i></div></div>
+        <div class="info"><span class="cat">Power BI</span><h4>Wide World Importers Sales, Page 2</h4></div>
+      </div>
+      <div class="work stone" data-cat="powerbi" data-full="images/Flight Performance Dashboard.png">
+        <div class="thumb"><img src="images/Flight Performance Dashboard.png" alt="Flight performance dashboard" /><div class="ph"><i class="fa-solid fa-plane"></i></div></div>
+        <div class="info"><span class="cat">Power BI</span><h4>Flight Performance</h4></div>
+      </div>
+      <div class="work stone" data-cat="powerbi" data-full="images/Sales Person Performance Dashboard.png">
+        <div class="thumb"><img src="images/Sales Person Performance Dashboard.png" alt="Salesperson performance dashboard" /><div class="ph"><i class="fa-solid fa-user-tie"></i></div></div>
+        <div class="info"><span class="cat">Power BI</span><h4>Salesperson Performance</h4></div>
+      </div>
+      <div class="work stone" data-cat="sql" data-full="images/SQL_ETC.png">
+        <div class="thumb"><img src="images/SQL_ETC.png" alt="SQL data cleansing query" /><div class="ph"><i class="fa-solid fa-database"></i></div></div>
+        <div class="info"><span class="cat">SQL</span><h4>Data Cleansing Queries</h4></div>
+      </div>
+      <div class="work stone" data-cat="sql" data-full="images/SQL_Having.png">
+        <div class="thumb"><img src="images/SQL_Having.png" alt="SQL aggregation with HAVING" /><div class="ph"><i class="fa-solid fa-database"></i></div></div>
+        <div class="info"><span class="cat">SQL</span><h4>Aggregation with HAVING</h4></div>
+      </div>
+      <div class="work stone" data-cat="sql" data-full="images/Case Statement.jpg">
+        <div class="thumb"><img src="images/Case Statement.jpg" alt="SQL CASE statement" /><div class="ph"><i class="fa-solid fa-database"></i></div></div>
+        <div class="info"><span class="cat">SQL</span><h4>CASE Statement Logic</h4></div>
+      </div>
+      <div class="work stone" data-cat="excel" data-full="images/Excel 1.png">
+        <div class="thumb"><img src="images/Excel 1.png" alt="Advanced Excel formulas, example 1" /><div class="ph"><i class="fa-solid fa-table"></i></div></div>
+        <div class="info"><span class="cat">Excel</span><h4>Advanced Formulas I</h4></div>
+      </div>
+      <div class="work stone" data-cat="excel" data-full="images/Excel 2.png">
+        <div class="thumb"><img src="images/Excel 2.png" alt="Advanced Excel formulas, example 2" /><div class="ph"><i class="fa-solid fa-table"></i></div></div>
+        <div class="info"><span class="cat">Excel</span><h4>Advanced Formulas II</h4></div>
+      </div>
+      <div class="work stone" data-cat="excel" data-full="images/Excel 3.png">
+        <div class="thumb"><img src="images/Excel 3.png" alt="Advanced Excel formulas, example 3" /><div class="ph"><i class="fa-solid fa-table"></i></div></div>
+        <div class="info"><span class="cat">Excel</span><h4>Advanced Formulas III</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">04</span> Experience</p>
+    <h2 class="section-title reveal">Professional <em>journey</em></h2>
+    <div class="timeline-cols">
+      <div class="reveal">
+        <h3><i class="fa-solid fa-briefcase"></i> Work</h3>
+        <div class="timeline">
+          <div class="t-item stone">
+            <span class="t-tag">Current</span>
+            <h4>Project Analyst</h4>
+            <p class="org">Operations</p>
+            <ul>
+              <li>Serve as liaison between business partners, teammates, and leadership</li>
+              <li>Track and analyze group account churn escalations</li>
+              <li>Document processes and support cross functional initiatives</li>
+              <li>Deliver Power BI reporting that keeps stakeholders informed</li>
+            </ul>
+          </div>
+          <div class="t-item stone">
+            <span class="t-tag">Previous</span>
+            <h4>Business Intelligence Analyst</h4>
+            <p>Analyzed provider performance and built dashboards that informed client satisfaction and training plans.</p>
+          </div>
+          <div class="t-item stone">
+            <span class="t-tag">Research</span>
+            <h4>Data Visualization</h4>
+            <p class="org">University of Florida</p>
+            <p>Created data visualizations for a community outreach research program.</p>
+          </div>
+          <div class="t-item stone">
+            <span class="t-tag">Healthcare</span>
+            <h4>Clinical Healthcare Professional</h4>
+            <p>Licensed and certified clinician with a foundation in precision, compliance, and patient care.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+        <div class="timeline">
+          <div class="t-item stone">
+            <span class="t-tag">In progress</span>
+            <h4>Master's Degree, Data Analytics</h4>
+            <p class="org">Georgia Institute of Technology, Scheller College of Business</p>
+            <p>Coursework in analytics modeling, machine learning, Lean Six Sigma, and business fundamentals.</p>
+          </div>
+          <div class="t-item stone">
+            <span class="t-tag">With honors</span>
+            <h4>Bachelor of Applied Science</h4>
+            <p class="org">St. Petersburg College</p>
+          </div>
+          <div class="t-item stone">
+            <span class="t-tag">Program</span>
+            <h4>Disney College Program</h4>
+            <p class="org">Alumni</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDENTIALS ================= -->
+<section id="credentials">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">05</span> Credentials</p>
+    <h2 class="section-title reveal" style="margin-bottom:40px;">Certifications &amp; <em>training</em></h2>
+    <div class="cred-grid reveal">
+      <div class="cred stone featured"><i class="fa-solid fa-certificate"></i><h4>Microsoft Certified: Power BI Data Analyst Associate</h4><p>January 2026</p></div>
+      <div class="cred stone"><i class="fa-solid fa-chart-pie"></i><h4>Pragmatic Works Power BI Bootcamp</h4><p>Completed</p></div>
+      <div class="cred stone"><i class="fa-solid fa-database"></i><h4>DataCamp SQL Track</h4><p>Intro to SQL Server, Intermediate SQL, and Joining Data in SQL</p></div>
+      <div class="cred stone"><i class="fa-solid fa-table"></i><h4>DataCamp: Data Analysis in Excel</h4><p>Completed</p></div>
+    </div>
+    <div class="health stone reveal">
+      <h4><i class="fa-solid fa-heart-pulse"></i> Healthcare credentials</h4>
+      <p>Florida licensed Certified Registered Dental Hygienist, Dental Anesthesia Assistant National Certification Examination certified, Certified Expanded Function Dental Assistant, Certified Nursing Assistant, Basic Life Support, and HIPAA and OSHA Bloodborne Pathogens training.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="contact-box stone">
+      <p class="eyebrow">Contact</p>
+      <h2 class="section-title">Let's <em>connect</em></h2>
+      <p class="lead">I welcome conversations about business analysis, data analytics, and opportunities to contribute to forward thinking teams.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/cassy-sin-ting-tsui-54933843/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/Cassyhk/portfolio" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/cassyhk.io" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <a href="https://www.linkedin.com/in/cassy-sin-ting-tsui-54933843/" target="_blank" rel="noopener" class="btn">Connect on LinkedIn <i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>&copy; <span id="yr"></span> Sin Ting (Cassy) Tsui</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button type="button" aria-label="Close">&times;</button>
+  <img src="" alt="" />
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+
+  // Stars
+  (function () {
+    var g = document.getElementById('stars'), s = 42;
+    function rnd() { s = (s * 9301 + 49297) % 233280; return s / 233280; }
+    for (var i = 0; i < 140; i++) {
+      var c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', (rnd() * 1440).toFixed(1));
+      c.setAttribute('cy', (rnd() * 470).toFixed(1));
+      c.setAttribute('r', (0.5 + rnd() * 1.4).toFixed(2));
+      c.setAttribute('fill', rnd() < .2 ? '#ffe6b0' : '#ffffff');
+      c.setAttribute('opacity', (0.3 + rnd() * 0.7).toFixed(2));
+      if (rnd() < .35) { c.setAttribute('class', 'twinkle'); c.style.animationDelay = (-rnd() * 4).toFixed(2) + 's'; }
+      g.appendChild(c);
+    }
+  })();
+
+  // Pine silhouettes
+  (function () {
+    function pines(groupId, count, baseY, minH, maxH, seed) {
+      var g = document.getElementById(groupId), s = seed;
+      function rnd() { s = (s * 9301 + 49297) % 233280; return s / 233280; }
+      for (var i = 0; i < count; i++) {
+        var x = (i + rnd() * 0.8) * (1440 / count), h = minH + rnd() * (maxH - minH), w = h * 0.42;
+        var y = baseY + Math.sin(x / 180) * 10;
+        var p = document.createElementNS(NS, 'polygon');
+        p.setAttribute('points',
+          x + ',' + (y - h) + ' ' + (x + w * .35) + ',' + (y - h * .62) + ' ' + (x + w * .2) + ',' + (y - h * .62) + ' ' +
+          (x + w * .5) + ',' + (y - h * .28) + ' ' + (x + w * .3) + ',' + (y - h * .28) + ' ' + (x + w * .62) + ',' + y + ' ' +
+          (x - w * .62) + ',' + y + ' ' + (x - w * .3) + ',' + (y - h * .28) + ' ' + (x - w * .5) + ',' + (y - h * .28) + ' ' +
+          (x - w * .2) + ',' + (y - h * .62) + ' ' + (x - w * .35) + ',' + (y - h * .62));
+        g.appendChild(p);
+      }
+    }
+    pines('pinesBack', 26, 715, 50, 110, 7);
+    pines('pinesFront', 18, 795, 80, 170, 19);
+  })();
+
+  // Parallax and readability veil
+  (function () {
+    var layers = document.querySelectorAll('.scene .layer');
+    var veil = document.getElementById('veil');
+    var ticking = false;
+    function update() {
+      var y = window.scrollY, h = window.innerHeight;
+      veil.style.opacity = Math.min(0.62, y / (h * 0.9));
+      if (!reduceMotion) {
+        layers.forEach(function (l) {
+          var d = parseFloat(l.dataset.depth);
+          l.style.transform = 'translateY(' + (-Math.min(y, h * 1.2) * d) + 'px)';
+        });
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+    update();
+  })();
+
+  // Fireflies
+  (function () {
+    var c = document.getElementById('fireflies'), ctx = c.getContext('2d');
+    var flies = [], w, h, dpr, t = 0;
+    function size() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = window.innerWidth; h = window.innerHeight;
+      c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.round(Math.min(32, (w * h) / 38000));
+      flies = [];
+      for (var i = 0; i < n; i++) {
+        flies.push({ x: Math.random() * w, y: h * (.45 + Math.random() * .55), r: 1.1 + Math.random() * 1.6,
+          vx: (Math.random() - .5) * .2, vy: -0.05 - Math.random() * .15,
+          ph: Math.random() * Math.PI * 2, sp: .008 + Math.random() * .018, warm: Math.random() < .55 });
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, w, h); t++;
+      for (var i = 0; i < flies.length; i++) {
+        var f = flies[i];
+        if (!reduceMotion) {
+          f.x += f.vx + Math.sin((t + i * 40) / 90) * .15; f.y += f.vy; f.ph += f.sp;
+          if (f.y < h * .3) { f.y = h + 10; f.x = Math.random() * w; }
+          if (f.x < -10) f.x = w + 10; if (f.x > w + 10) f.x = -10;
+        }
+        var a = reduceMotion ? .6 : (.3 + .7 * Math.max(0, Math.sin(f.ph)));
+        var col = f.warm ? '255,214,138' : '246,239,210';
+        var g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 7);
+        g.addColorStop(0, 'rgba(' + col + ',' + (a * .9) + ')');
+        g.addColorStop(.25, 'rgba(' + col + ',' + (a * .35) + ')');
+        g.addColorStop(1, 'rgba(' + col + ',0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(f.x, f.y, f.r * 7, 0, Math.PI * 2); ctx.fill();
+      }
+      if (!reduceMotion && !document.hidden) requestAnimationFrame(draw);
+    }
+    size(); draw();
+    window.addEventListener('resize', function () { size(); if (reduceMotion) draw(); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden && !reduceMotion) draw(); });
+  })();
+
+  // Typing effect
+  (function () {
+    var el = document.getElementById('typed');
+    var words = ['Business Analyst', 'Project Analyst', 'Data Analytics Graduate Student'];
+    if (reduceMotion) return;
+    var wi = 0, ci = words[0].length, deleting = true;
+    function tick() {
+      el.textContent = words[wi].slice(0, ci);
+      if (deleting) {
+        ci--;
+        if (ci < 0) { deleting = false; wi = (wi + 1) % words.length; ci = 0; }
+        setTimeout(tick, 40);
+      } else {
+        ci++;
+        if (ci > words[wi].length) { deleting = true; ci = words[wi].length; setTimeout(tick, 2200); return; }
+        setTimeout(tick, 80);
+      }
+    }
+    setTimeout(tick, 2600);
+  })();
+
+  // Missing image placeholders
+  document.querySelectorAll('.work .thumb img').forEach(function (img) {
+    function miss() { img.style.display = 'none'; img.parentElement.classList.add('missing'); }
+    if (img.complete && img.naturalWidth === 0) miss();
+    img.addEventListener('error', miss);
+  });
+
+  // Active nav while scrolling
+  var links = document.querySelectorAll('.side-nav a');
+  var sections = Array.prototype.map.call(links, function (a) { return document.querySelector(a.getAttribute('href')); });
+  var navObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id); });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(function (s) { if (s) navObserver.observe(s); });
+
+  // Reveal on scroll
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+
+  // Dashboard filter
+  var buttons = document.querySelectorAll('.filters button');
+  function applyFilter(f) {
+    buttons.forEach(function (x) { x.classList.toggle('active', x.dataset.filter === f); });
+    document.querySelectorAll('.work').forEach(function (w) { w.classList.toggle('hide', f !== 'all' && w.dataset.cat !== f); });
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { applyFilter(b.dataset.filter); }); });
+
+  // Skill tiles jump to the work that proves them
+  document.querySelectorAll('.tile').forEach(function (tile) {
+    tile.addEventListener('click', function () {
+      var target = document.querySelector(tile.dataset.target);
+      if (!target) return;
+      if (tile.dataset.filter) applyFilter(tile.dataset.filter);
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: tile.dataset.filter || tile.dataset.target === '#projects' ? 'start' : 'center' });
+      var spot = tile.dataset.filter ? target.querySelectorAll('.work:not(.hide)') : (tile.dataset.target === '#projects' ? target.querySelectorAll('.proj') : [target]);
+      spot.forEach(function (el) {
+        el.classList.remove('spotlight'); void el.offsetWidth; el.classList.add('spotlight');
+      });
+    });
+  });
+
+  // Lightbox
+  var lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
+  document.querySelectorAll('.work[data-full]').forEach(function (w) {
+    w.addEventListener('click', function () {
+      if (w.querySelector('.thumb.missing')) return;
+      lbImg.src = w.dataset.full; lbImg.alt = w.querySelector('h4').textContent; lb.classList.add('open');
+    });
+  });
+  function closeLb() { lb.classList.remove('open'); lbImg.src = ''; }
+  lb.addEventListener('click', function (e) { if (e.target !== lbImg) closeLb(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+</script>
+</body>
 </html>
-
